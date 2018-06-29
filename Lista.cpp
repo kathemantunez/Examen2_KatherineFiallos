@@ -35,24 +35,15 @@ void Lista::print(int cont1){
     //while(nuevo!=NULL){
     while(x<=cont1){
          cout<<"Equipos #"<<cont<<endl;
-        cout<<"Nombre del equipo:"<<nuevo->getseleccion()->getnombre()<<endl;
+         string x1=nuevo->getseleccion()->getnombre();
+        cout<<"Nombre del equipo:"<<x1<<endl;
         cout<<"Maximo goleador:"<<nuevo->getseleccion()->getgoleador()<<endl;
         cout<<"Partidos Ganados:"<<nuevo->getseleccion()->getp_perdidos()<<endl;
         cont++;
         x++;
     }
    
-  /*  cout<<"Equipos:"<<endl;
-    int cont=1;
-   
-    while(siguiente!=NULL){
-        cout<<"Equipos #"<<cont<<endl;
-        cout<<"Nombre del equipo:"<<siguiente->getseleccion()->getnombre()<<endl;
-        cout<<"Maximo goleador:"<<siguiente->getseleccion()->getgoleador()<<endl;
-        cout<<"Partidos Ganados:"<<siguiente->getseleccion()->getp_perdidos();
-        cont++;
-       
-    }*/
+  
 }
     
 

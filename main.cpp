@@ -30,8 +30,8 @@ int main(){
         cout<<"1. Agregar Selecciòn"<<endl;
         cout<<"2. Listar Selecciòn"<<endl;
         cout<<"3. Eliminar Selecciòn"<<endl;
-        cout<<"4. Abrir archivo binario"<<endl;
-        cout<<"5. Salir"<<endl;
+       // cout<<"4. Abrir archivo binario"<<endl;
+        cout<<"4. Salir"<<endl;
         cout<<"------------------------------"<<endl;
         cin>>tecla;
 
@@ -49,11 +49,12 @@ int main(){
                 
                 break;
             case '4':
-                abrir_archivo();
-                break;
-            case '5':
                 seguir=false;
                 break;
+            case '5':
+                
+                break;
+                abrir_archivo();
             default:
                 cout<<"OPCIÒN INCORRECTA"<<endl;
                 break;
@@ -120,30 +121,12 @@ void eliminar_seleccion(){
 
 }
 void abrir_archivo(){
-    seleccion* selec;
+    
+    /*
+    seleccion* sele;
+    ifstream leer("Equipos.dat",ios::in | ios::binary);
+    leer.read((char*))&sele,sizeof(seleccion*);*/
 
-    ifstream fentrada;
-    fentrada.open("Equipos.dat",  ios::binary | ios::app);
-    fentrada.seekg(0,ios::end);
-    long longitud=fentrada.tellg();
-    fentrada.seekg(0,ios::beg);
-
-    if(!fentrada.good())return;
-
-    for(int i=0;i<(longitud/sizeof(seleccion*));i++){
-        fentrada.read((char*)(&selec),sizeof(seleccion*));
-        cout<<fentrada.tellg();
-        cout<<&selec<<endl;
-    }
-    fentrada.close();
-
-    /*ifstream readbinary("Equipos.dat",ios::binary);
-    seleccion* selec;
-    selec.read(readbinary);
-    readbinary.close();
-    cout<<selec<<endl;
-    delete selec;*/
-   
 
 
 
