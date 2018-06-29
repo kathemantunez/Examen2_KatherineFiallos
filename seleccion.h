@@ -13,7 +13,8 @@ class seleccion{
     partidos ganados, perdidos, empatados,
      goles anotados, máximo goleador y sus goles anotados.
     */
-    private:
+   public:
+    
         string nombre;
         int partidos_ganados;
         int partidos_perdidos;
@@ -24,7 +25,7 @@ class seleccion{
 
 
 
-    public:
+    
         seleccion(string,int,int,int,int,string,int);
         //get
         string getnombre();
@@ -43,6 +44,12 @@ class seleccion{
         void setgoles_anotados(int);
         void setgoleador(string);
         void setgoles_jugador(int);
+        //void toString();
+        // void write(ofstream&);
+        //void read(ifstream&);
+        //friend ostream& operator<<(ostream&,const Seleccion&);
+        //friend istream& operator>>(istream&, Seleccion&);
+
 
 
 

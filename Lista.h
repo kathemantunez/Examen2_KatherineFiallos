@@ -11,10 +11,11 @@ class Lista{
     public:
         Lista();
         ~Lista();
+        Nodo* getsiguiente();
 
         void push(Nodo*);
         void delete1(seleccion*);
-        void listar();
+        void print(int);
 
 
 };

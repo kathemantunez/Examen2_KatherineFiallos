@@ -1,12 +1,13 @@
 #include "Nodo.h"
 #include <iostream>
 
-Nodo::Nodo(seleccion* sele,Nodo* _sig=NULL){
-    SELECCION=sele;
-    siguiente=_sig;
+Nodo::Nodo(seleccion* s,Nodo* n){
+    SELECCION=s;
+    siguiente=n;
     
 
 }
+
 void Nodo::setseleccion(seleccion* s){
     SELECCION=s;
 }

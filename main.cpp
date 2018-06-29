@@ -3,6 +3,10 @@
 #include "Nodo.h"
 #include "Lista.h"
 
+#include <fstream>
+#include <cstring>
+#include <stdio.h>
+
 using namespace std;
 using std::endl;
 
@@ -11,14 +15,11 @@ void listar_seleccion();
 void eliminar_seleccion();
 void abrir_archivo();
 
-
-
-
 Nodo* nodo;
 Lista* lista;
+int cont_global=0;
 
 int main(){
-
     char tecla;
     bool seguir=true;
 
@@ -33,15 +34,19 @@ int main(){
         cout<<"5. Salir"<<endl;
         cout<<"------------------------------"<<endl;
         cin>>tecla;
+
         switch(tecla){
             case '1':  
-                agregar_seleccion();
+                    agregar_seleccion();
                 break;
             case '2':
-                listar_seleccion();
+                    listar_seleccion();
+                
+                
                 break;
             case '3':
-                eliminar_seleccion();
+                    eliminar_seleccion();
+                
                 break;
             case '4':
                 abrir_archivo();
@@ -85,37 +90,29 @@ void agregar_seleccion(){
 
     seleccion* selec=new seleccion(nombre,p_ganados,p_perdidos,p_empatados,goles_anotados,goleador,goles_jugador);
    
-    nodo=new Nodo(selec,NULL);
+    nodo=new Nodo(selec,nodo);
     lista=new Lista();
     lista->push(nodo);
+    cont_global++;
+    lista->print(cont_global);
+
+    //Archivo bianrio
+    ofstream fsalida("Equipos.dat", ios::out | ios::binary | ios::app);
+    //string x=selec->toString();
+    fsalida.write((char*)selec,sizeof(seleccion*));
+    fsalida.close();
+    cout<<"AGREGADO AL ARCHIVO BINARIOS"<<endl;
     
 
 
-
+    
 
 }
-void listar_seleccion(){
-       
-        
-        char tecla;
-        cout<<"1. Selecciones mas goleadoras "<<endl;
-        cout<<"2. Màximos goleadores"<<endl;
-        cout<<"3. Selecciones mas ganadoras"<<endl;
-        cin>>tecla;
-        switch(tecla){
-            case '1':  
-                
-                break;
-            case '2':
-               
-                break;
-            case '3':
-                
-                break;
-            default:
-                cout<<"opcion incorrecta"<<endl;
-        }
 
+
+void listar_seleccion(){
+    lista->print(cont_global);
+      
 
 }
 void eliminar_seleccion(){
@@ -123,5 +120,33 @@ void eliminar_seleccion(){
 
 }
 void abrir_archivo(){
+    seleccion* selec;
+
+    ifstream fentrada;
+    fentrada.open("Equipos.dat",  ios::binary | ios::app);
+    fentrada.seekg(0,ios::end);
+    long longitud=fentrada.tellg();
+    fentrada.seekg(0,ios::beg);
+
+    if(!fentrada.good())return;
+
+    for(int i=0;i<(longitud/sizeof(seleccion*));i++){
+        fentrada.read((char*)(&selec),sizeof(seleccion*));
+        cout<<fentrada.tellg();
+        cout<<&selec<<endl;
+    }
+    fentrada.close();
+
+    /*ifstream readbinary("Equipos.dat",ios::binary);
+    seleccion* selec;
+    selec.read(readbinary);
+    readbinary.close();
+    cout<<selec<<endl;
+    delete selec;*/
+   
+
+
+
+
 
 }

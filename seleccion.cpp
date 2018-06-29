@@ -14,6 +14,13 @@ seleccion::seleccion(string _nombre,int p_ganados,int p_perdidos,int p_empatados
     goles_jugador=goles_goleador;
 
 }
+/*void seleccion::toString(){
+    cout<<"Nombre de equipo: "<<nombre<<" ,Partidos ganados: "<<partidos_ganados<<" ,Partidos perdidos:"<<partidos_perdidos
+    <<" ,Partidos empatados:"<<partidos_empatados<<" ,Goles anotados por el equipo:"<<goles_anotados
+    <<" ,Maximo Goleador:"<<goleador<<" ,Goles del maximo goleador:"<<goles_jugador<<endl;
+    
+
+}*/
         //get
 string seleccion::getnombre(){
     return nombre;
@@ -59,3 +66,60 @@ void seleccion::setgoleador(string x) {
 void seleccion::setgoles_jugador(int x){
     goles_jugador=x;
 }
+/*
+void seleccion::read(ifstream& in){
+  int size;
+  //partidosGanados
+  in.read(reinterpret_cast<char*>(&partidos_ganados),sizeof(int));
+
+  //partidosPerdidos
+  in.read(reinterpret_cast<char*>(&partidos_perdidos),sizeof(int));
+
+  //partidosEmpatados
+  in.read(reinterpret_cast<char*>(&partidos_empatados),sizeof(int));
+
+  //golesAnotados
+  in.read(reinterpret_cast<char*>(&goles_anotados),sizeof(int));
+
+  //golesJugador
+  in.read(reinterpret_cast<char*>(&goles_jugador),sizeof(int));
+
+  //nombreSeleccion
+  in.read(reinterpret_cast<char*>(&size),sizeof(int));
+  char numBuffer[size];
+  in.read(numBuffer,size);
+  nombre=numBuffer;
+
+  //maximoGoleador
+  in.read(reinterpret_cast<char*>(&size),sizeof(int));
+  char maxGolBuffer[size];
+  in.read(numBuffer,size);
+  goleador=numBuffer;
+}*/
+/*void seleccion::write(ofstream& out){
+  //Nombre Seleccion
+  int size = nombre.size();
+  out.write(reinterpret_cast<char*>(&size),sizeof(int));
+  out.write(nombre.data(),nombre.size());
+
+  //Maximo goleador
+  size = goleador.size();
+  out.write(reinterpret_cast<char*>(&size),sizeof(int));
+  out.write(goleador.data(),goleador.size());
+
+  //Partidos ganados
+  out.write(reinterpret_cast<char*>(&partidos_ganados),sizeof(int));
+
+  //Partidos perdidos
+  out.write(reinterpret_cast<char*>(&partidos_perdidos),sizeof(int));
+
+  //Partidos empatados
+  out.write(reinterpret_cast<char*>(&partidos_empatados),sizeof(int));
+
+  //Goles anotados
+  out.write(reinterpret_cast<char*>(&goles_anotados),sizeof(int));
+
+  //Goles Jugador
+  out.write(reinterpret_cast<char*>(&goles_jugador),sizeof(int));
+
+}*/
