@@ -5,11 +5,11 @@ Lista::Lista(){
     siguiente=NULL;
 }
 
-void Lista::push(Nodo* n){
+void Lista::push(Nodo* n,int cont){
   /*  Nodo* temp=new Nodo(n);
     temp->setseleccion(siguiente);
     siguiente=temp;*/
-
+  
 
 
     Nodo* t;
@@ -41,40 +41,11 @@ void Lista::print(int cont1){
         cout<<"Partidos Ganados:"<<nuevo->getseleccion()->getp_perdidos()<<endl;
         cont++;
         x++;
+        cout<<endl;
     }
    
   
 }
-    
+void Lista::delete1(seleccion* s){
 
-
-
-
-
-
-
-
-
-
-
-
-   /* Nodo* nuevo_seleccion;
-    Nodo* temp;
-
-    //nuevo_seleccion->setseleccion(sele);
-    if(n!=NULL){
-        temp=n;
-        nuevo_seleccion->setsig(temp);
-        n=nuevo_seleccion;
-        cout<<"agregado"<<endl;
-        
-        
-        
-    }else{
-        n=nuevo_seleccion;
-        nuevo_seleccion->setsig(NULL);
-        cout<<"Seleccion agregada a la lista enlazada,estaba vacia la lista"<<endl;
-
-    }*/
-
-
+}

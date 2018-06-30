@@ -18,6 +18,7 @@ void abrir_archivo();
 Nodo* nodo;
 Lista* lista;
 int cont_global=0;
+int c=1;
 
 int main(){
     char tecla;
@@ -92,9 +93,14 @@ void agregar_seleccion(){
     seleccion* selec=new seleccion(nombre,p_ganados,p_perdidos,p_empatados,goles_anotados,goleador,goles_jugador);
    
     nodo=new Nodo(selec,nodo);
+
     lista=new Lista();
-    lista->push(nodo);
+
+    lista->push(nodo,c);
+
     cont_global++;
+    c++;
+
     lista->print(cont_global);
 
     //Archivo bianrio
@@ -103,10 +109,6 @@ void agregar_seleccion(){
     fsalida.write((char*)selec,sizeof(seleccion*));
     fsalida.close();
     cout<<"AGREGADO AL ARCHIVO BINARIOS"<<endl;
-    
-
-
-    
 
 }
 
@@ -126,10 +128,5 @@ void abrir_archivo(){
     seleccion* sele;
     ifstream leer("Equipos.dat",ios::in | ios::binary);
     leer.read((char*))&sele,sizeof(seleccion*);*/
-
-
-
-
-
 
 }

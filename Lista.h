@@ -13,7 +13,7 @@ class Lista{
         ~Lista();
         Nodo* getsiguiente();
 
-        void push(Nodo*);
+        void push(Nodo*,int);
         void delete1(seleccion*);
         void print(int);
 
